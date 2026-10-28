@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Horta Automatizada</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="apple-desktop">
+    <div class="window">
+      <div class="titlebar">
+        <div class="buttons">
+          <div class="btn btn-close"></div>
+          <div class="btn btn-minimize"></div>
+          <div class="btn btn-maximize"></div>
+        </div>
+        <div class="title">Horta Automatizada</div>
+      </div>
+
+      <div class="content">
+
+        <!-- Sensores -->
+        <div class="panel sensores">
+          <h2>Sensores</h2>
+          <div class="gauge-row">
+            <div class="gauge temp">
+              <div class="label">Temperatura</div>
+              <div class="value" id="valTemp">-- °C</div>
+              <div class="led" id="ledTemp"></div>
+            </div>
+            <div class="gauge hum">
+              <div class="label">Umidade do solo</div>
+              <div class="value" id="valHum">-- %</div>
+              <div class="led" id="ledHum"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LEDs de status -->
+        <div class="panel leds">
+          <h2>Status</h2>
+          <div class="led-row">
+            <div class="led-indicator">
+              <div class="led led-azul" id="ledIrrigacao" title="Irrigação"></div>
+              <span>Irrigação (Azul)</span>
+            </div>
+            <div class="led-indicator">
+              <div class="led led-verde" id="ledVentilacao" title="Ventilação"></div>
+              <span>Ventilação (Verde)</span>
+            </div>
+            <div class="led-indicator">
+              <div class="led led-vermelho" id="ledErro" title="Erro"></div>
+              <span>Erro (Vermelho)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controles manuais -->
+        <div class="panel controles">
+          <h2>Controle Manual</h2>
+          <div class="botoes">
+            <button class="btn-apple btn-azul" id="btnIrrigOn">Ligar Irrigação</button>
+            <button class="btn-apple btn-azul" id="btnIrrigOff">Desligar Irrigação</button>
+            <button class="btn-apple btn-verde" id="btnVentOn">Ligar Ventilação</button>
+            <button class="btn-apple btn-verde" id="btnVentOff">Desligar Ventilação</button>
+          </div>
+          <div class="modo">
+            <button class="btn-apple" id="btnAuto">Modo Automático</button>
+            <button class="btn-apple" id="btnManual">Modo Manual</button>
+          </div>
+          <div class="aviso" id="aviso"></div>
+        </div>
+
+        <!-- Mensagem de automação -->
+        <div class="panel status-auto">
+          <h2>Automação</h2>
+          <div id="msgAuto">Aguardando dados...</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Painel de desenvolvedor -->
+  <div id="dev-panel" class="dev-panel hidden">
+    <div class="dev-titlebar">
+      <span>🛠 Dev / Simulação</span>
+      <span class="dev-close" id="dev-close">×</span>
+    </div>
+    <div class="dev-body">
+      <label>Temperatura (°C)
+        <input type="number" id="devTemp" step="0.1" placeholder="--">
+      </label>
+      <label>Umidade (%)
+        <input type="number" id="devHum" step="0.1" placeholder="--">
+      </label>
+      <div class="dev-actions">
+        <button id="devApply">Aplicar</button>
+        <button id="devReset">Sincronizar</button>
+      </div>
+      <div class="dev-hint">Atalho: Ctrl+Shift+D</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
